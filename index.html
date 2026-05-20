@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escape North Koria Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div
+    id="file-warn"
+    style="display:none;position:fixed;top:0;left:0;right:0;z-index:9999;background:#b02020;color:#fff;padding:14px 16px;text-align:center;font-family:'Courier New',monospace;font-size:14px;line-height:1.5;"
+  >
+    This game must run through a local server. Double-click <strong>PLAY.bat</strong> (do not open index.html directly).
+  </div>
+  <script>
+    if (location.protocol === "file:") {
+      document.getElementById("file-warn").style.display = "block";
+    }
+  </script>
+
+  <div id="game-wrap">
+    <canvas id="game" width="640" height="360"></canvas>
+
+    <div id="dialog-ui">
+      <div id="dialog-box">
+        <p id="dialog-text"></p>
+        <span id="dialog-arrow" class="hidden">▼</span>
+      </div>
+    </div>
+
+    <div id="e-prompt" class="hidden" aria-hidden="true">
+      <span class="e-key">E</span>
+    </div>
+
+    <div id="fade-overlay"></div>
+
+    <div id="money-ui" class="hidden" aria-live="polite">₩ 0</div>
+
+    <div id="controls-hint" class="hidden">
+      <p>WASD — move around</p>
+      <p>E — interact</p>
+    </div>
+  </div>
+
+  <div id="load-error" class="hidden">
+    Game failed to load. Make sure <strong>game.js</strong> is in the same folder as this file.
+  </div>
+
+  <script src="sprites.js?v=3"></script>
+  <script src="slots.js?v=3"></script>
+  <script src="outside.js?v=3"></script>
+  <script src="game.js?v=3"></script>
+</body>
+</html>
